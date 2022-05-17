@@ -97,6 +97,7 @@ function ESP:Add(obj, options)
 	local box = setmetatable({
 		Name = options.Name or obj.Name,
 		Type = "Box",
+		Visible = options.Visible
 		Color = options.Color --[[or self:GetColor(obj)]],
 		Size = options.Size or self.BoxSize,
 		Object = obj,
@@ -104,10 +105,6 @@ function ESP:Add(obj, options)
 		Components = {},
 		ColorDynamic = options.ColorDynamic,
 	}, boxBase)
-
-	if options.Visible == nil then
-		options.Visible = true
-	end
 
 	box.Components["Name"] = Draw("Text", {
 		Text = box.Name,
